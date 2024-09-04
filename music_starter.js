@@ -1,23 +1,36 @@
 //vocal, drum, bass, and other are volumes ranging from 0 to 100
 let firstRun = true
 let Dog = [];
+let Dog1 = [];
+let Dog2 = [];
+let Dog3 = [];
 
 function draw_one_frame(words, vocal, drum, bass, other, counter){
   colorMode(HSB,100)
   background(255)
+
   if(firstRun){
-    rectMode(CENTER);
+  rectMode(CENTER);
+  
   Dog.push(loadImage('Dog.other.1.png')); // Load images in preload function
   Dog.push(loadImage('Dog.other.2.png'));
   Dog.push(loadImage('Dog.other.3.png'));
   Dog.push(loadImage('Dog.other.4.png'));
+
+  Dog1.push(loadImage('Dog.drum.1.png')); // Load images in preload function
+  Dog1.push(loadImage('Dog.drum.2.png'));
+  Dog1.push(loadImage('Dog.drum.3.png'));
+  Dog1.push(loadImage('Dog.drum.4.png'));
+  
   firstRun=false
 }
 function setup(){
-  createCanvas(1200,800);
+  createCanvas(800,800);
 }
 
+//other
   let otherFrame;
+
   if(other<60){
     otherFrame = 0;
   } else if (other<70){
@@ -32,10 +45,31 @@ function setup(){
   
   console.log(otherFrame);
   push();
-  scale(0.35);
-  image(Dog[otherFrame], 1000, height/2+1000);
+  scale(0.25);
+  image(Dog[otherFrame], 1000, height/2+500);
   pop ();
   
+
+  //drum
+  let drumFrame;
+
+  if(drum<60){
+    drumFrame = 0;
+  } else if (drum<70){
+    drumFrame = 1;
+  } else if(drum<80){
+    drumFrame=2;
+  } else if(drum<90){
+    drumFrame=3;
+  } else{
+    drumFrame = Dog1.length-1;
+  }
+  
+  console.log(drumFrame);
+  push();
+  scale(0.25);
+  image(Dog1[drumFrame], 0, height/2+550);
+  pop ();
 }
   
   
