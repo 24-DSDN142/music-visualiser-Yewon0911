@@ -16,12 +16,16 @@ function draw_one_frame(words, vocal, drum, bass, other, counter){
   Dog.push(loadImage('Dog.other.2.png'));
   Dog.push(loadImage('Dog.other.3.png'));
   Dog.push(loadImage('Dog.other.4.png'));
-
-  Dog1.push(loadImage('Dog.drum.1.png')); // Load images in preload function
-  Dog1.push(loadImage('Dog.drum.2.png'));
-  Dog1.push(loadImage('Dog.drum.3.png'));
-  Dog1.push(loadImage('Dog.drum.4.png'));
   
+  Dog1.push(loadImage('Dog.vocal.1.png')); // Load images in preload function
+  Dog1.push(loadImage('Dog.vocal.2.png'));
+  Dog1.push(loadImage('Dog.vocal.3.png'));
+  Dog1.push(loadImage('Dog.vocal.4.png'));
+  
+  Dog2.push(loadImage('Dog.drum.1.png')); // Load images in preload function
+  Dog2.push(loadImage('Dog.drum.2.png'));
+  Dog2.push(loadImage('Dog.drum.3.png'));
+  Dog2.push(loadImage('Dog.drum.4.png'));
   firstRun=false
 }
 function setup(){
@@ -45,10 +49,31 @@ function setup(){
   
   console.log(otherFrame);
   push();
-  scale(0.25);
-  image(Dog[otherFrame], 1000, height/2+500);
+  scale(0.2);
+  image(Dog[otherFrame], 1500, height/2+500);
   pop ();
   
+  //vocal
+  let vocalFrame;
+  
+  if(vocal<60){
+    vocalFrame = 0;
+  } else if (vocal<70){
+    vocalFrame = 1;
+  } else if(vocal<80){
+    vocalFrame=2;
+  } else if(vocal<90){
+    vocalFrame=3;
+  } else{
+    vocalFrame = Dog1.length-1;
+  }
+  
+  console.log(vocalFrame);
+  push();
+  scale(0.2);
+  image(Dog1[vocalFrame], 800, height/2+550);
+  pop ();
+
 
   //drum
   let drumFrame;
@@ -62,13 +87,13 @@ function setup(){
   } else if(drum<90){
     drumFrame=3;
   } else{
-    drumFrame = Dog1.length-1;
+    drumFrame = Dog2.length-1;
   }
   
   console.log(drumFrame);
   push();
-  scale(0.25);
-  image(Dog1[drumFrame], 0, height/2+550);
+  scale(0.2);
+  image(Dog2[drumFrame], 0, height/2+550);
   pop ();
 }
   
