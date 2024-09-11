@@ -41,6 +41,8 @@ function setup(){
   createCanvas(800,800);
 }
 
+
+
 //background
 push();
 scale(0.5);
