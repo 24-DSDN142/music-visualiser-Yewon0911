@@ -38,7 +38,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter){
   firstRun=false
 }
 function setup(){
-  createCanvas(100,100);
+  createCanvas(500,500);
 }
 
 let imageHeight = (height / 2 + 570) / 2; // 실제 이미지 높이
@@ -70,7 +70,7 @@ rectMode(CENTER)
   }
 
   let bassMap=map(bass,0,100,5,50)
-  let LineStart3 = 160
+  let LineStart3 = 170
   let LineEnd3 = LineStart3+lenghthOfLine
   stroke(bass,80,80)
 
