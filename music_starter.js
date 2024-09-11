@@ -41,8 +41,8 @@ function setup(){
   createCanvas(500,500);
 }
 
-let imageHeight = (height / 2 + 570) / 2; // 실제 이미지 높이
-let imageBottomY = 0 + imageHeight; // 이미지의 아래쪽 y좌표
+let imageHeight = (height / 2 + 570) / 2;
+let imageBottomY = 0 + imageHeight;
 
 rectMode(CENTER)
   strokeWeight(9)
