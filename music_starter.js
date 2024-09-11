@@ -38,15 +38,61 @@ function draw_one_frame(words, vocal, drum, bass, other, counter){
   firstRun=false
 }
 function setup(){
-  createCanvas(800,800);
+  createCanvas(100,100);
 }
 
+let imageHeight = (height / 2 + 570) / 2; // 실제 이미지 높이
+let imageBottomY = 0 + imageHeight; // 이미지의 아래쪽 y좌표
 
 
+rectMode(CENTER)
+  strokeWeight(9)
+  let lenghthOfLine=50
+
+  
+  let vocalMap=map(vocal,0,100,5,50)
+  let LineStart=450
+  let LineEnd = LineStart+lenghthOfLine
+  stroke(vocal,80,80)
+
+  for(let i=1; i<=vocalMap; i++){
+    let LineStep1 = imageBottomY-i*10
+    line(LineStart,LineStep1,LineEnd,LineStep1)
+  }
+
+  let drumMap=map(drum,0,100,5,50)
+  let LineStart2 = 300
+  let LineEnd2 = LineStart2+lenghthOfLine
+  stroke(drum,80,80)
+
+  for(let i=1; i<=drumMap; i++){
+    let LineStep2 = imageBottomY- i*10
+    line(LineStart2,LineStep2,LineEnd2,LineStep2)
+  }
+
+  let bassMap=map(bass,0,100,5,50)
+  let LineStart3 = 160
+  let LineEnd3 = LineStart3+lenghthOfLine
+  stroke(bass,80,80)
+
+  for(let i=1; i<=bassMap; i++){
+    let LineStep3 = imageBottomY- i*10
+    line(LineStart3,LineStep3,LineEnd3,LineStep3)
+  }
+
+  let otherMap=map(other,0,100,5,50)
+  let LineStart4 = 580
+  let LineEnd4 = LineStart4+lenghthOfLine
+  stroke(other,100,80)
+
+  for(let i=1; i<=otherMap; i++){
+    let LineStep4 = imageBottomY - i*10
+    line(LineStart4,LineStep4,LineEnd4,LineStep4)
+  }
 //background
 push();
 scale(0.5);
-image(backgroundImage, 0, 0, 1600, height/2+570);
+image(backgroundImage, 0, 0, 1600, height/2+590);
 pop ();
 
 //other
@@ -133,110 +179,7 @@ pop ();
   scale(0.2);
   image(Dog3[bassFrame], 400, height/2+550);
   pop ();
-
-
-
+  
+  
+  
 }
-  
-  
-  
-  
-  
-  // rectMode(CENTER)
-  // strokeWeight(9)
-  // let lenghthOfLine=100
-
-//   if ()
-//   let vocalMap=map(vocal,0,100,5,50)
-//   let LineStart=100
-//   let LineEnd = LineStart+lenghthOfLine
-//   stroke(vocal,80,80)
-
-//   for(let i=1; i<=vocalMap; i++){
-//     let LineStep1 = i*15
-//     line(LineStart,LineStep1,LineEnd,LineStep1)
-//   }
-
-//   let drumMap=map(drum,0,100,5,50)
-//   let LineStart2 = 210
-//   let LineEnd2 = LineStart2+lenghthOfLine
-//   stroke(drum,80,80)
-
-//   for(let i=1; i<=drumMap; i++){
-//     let LineStep2 = i*15
-//     line(LineStart2,LineStep2,LineEnd2,LineStep2)
-//   }
-
-//   let bassMap=map(bass,0,100,5,50)
-//   let LineStart3 = 320
-//   let LineEnd3 = LineStart3+lenghthOfLine
-//   stroke(bass,80,80)
-
-//   for(let i=1; i<=bassMap; i++){
-//     let LineStep3 = i*15
-//     line(LineStart3,LineStep3,LineEnd3,LineStep3)
-//   }
-
-//   let otherMap=map(other,0,100,5,50)
-//   let LineStart4 = 430
-//   let LineEnd4 = LineStart4+lenghthOfLine
-//   stroke(other,100,80)
-
-//   for(let i=1; i<=otherMap; i++){
-//     let LineStep4 = i*15
-//     line(LineStart4,LineStep4,LineEnd4,LineStep4)
-//   }
-// }
-
-
-// function draw_one_frame(words, vocal, drum, bass, other, counter) {
-//   background(20)
-//   textFont('Verdana'); // please use CSS safe fonts
-//   rectMode(CENTER)
-//   textSize(24);
-  
-// let eyeLSize = map(drum,0,100,70,220)
-// ellipse(200,200,eyeLSize,eyeLSize)
-
-// let eyeRSize = map(bass,0,100,70,220)
-// ellipse(500,200,eyeRSize,eyeRSize)
-
-// let mouthSize = map(vocal,0,100,60,350)
-// rect(350,500,200,mouthSize)
-// }
-
-//    let bar_spacing = height / 10;
-//    let bar_height = width / 12;
-//    let bar_pos_x = width / 2;
- 
-
-//    // vocal bar is red
-//    fill(200, 0, 0);
-//    rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-//    fill(0);
-//    text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-//    // drum bar is green
-//    fill(0, 200, 0);
-//    rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-//    fill(0);
-//    text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-//    // bass bar is blue
-//    fill(50, 50, 240);
-//    rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-//    fill(0);
-//    text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-//    // other bar is white
-//    fill(200, 200, 200);
-//    rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-//    fill(0);
-//    text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-//    fill(255, 255, 0);
- 
-//    // display "words"
-//    textAlign(CENTER);
-//    textSize(vocal);
-//    text(words, width/2, height/3);
-//  }
