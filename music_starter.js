@@ -4,6 +4,7 @@ let Dog = [];
 let Dog1 = [];
 let Dog2 = [];
 let Dog3 = [];
+let backgroundImage;
 
 function draw_one_frame(words, vocal, drum, bass, other, counter){
   colorMode(HSB,100)
@@ -31,11 +32,20 @@ function draw_one_frame(words, vocal, drum, bass, other, counter){
   Dog3.push(loadImage('Dog.bass.2.png'));
   Dog3.push(loadImage('Dog.bass.3.png'));
   Dog3.push(loadImage('Dog.bass.4.png'));
+
+  backgroundImage = loadImage('stage.png')
+
   firstRun=false
 }
 function setup(){
   createCanvas(800,800);
 }
+
+//background
+push();
+scale(0.5);
+image(backgroundImage, 0, 0, 1600, height/2+570);
+pop ();
 
 //other
   let otherFrame;
@@ -55,7 +65,7 @@ function setup(){
   console.log(otherFrame);
   push();
   scale(0.2);
-  image(Dog[otherFrame], 2800, height/2+500);
+  image(Dog[otherFrame], 2500, height/2+500);
   pop ();
   
   //vocal
@@ -76,7 +86,7 @@ function setup(){
   console.log(vocalFrame);
   push();
   scale(0.2);
-  image(Dog1[vocalFrame], 2000, height/2+550);
+  image(Dog1[vocalFrame], 1800, height/2+550);
   pop ();
 
 
@@ -98,7 +108,7 @@ function setup(){
   console.log(drumFrame);
   push();
   scale(0.2);
-  image(Dog2[drumFrame], 1200, height/2+550);
+  image(Dog2[drumFrame], 1100, height/2+550);
   pop ();
 
   //bass
@@ -122,7 +132,6 @@ function setup(){
   image(Dog3[bassFrame], 400, height/2+550);
   pop ();
 
-//background
 
 
 }
