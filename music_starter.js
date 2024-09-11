@@ -48,7 +48,6 @@ rectMode(CENTER)
   strokeWeight(9)
   let lenghthOfLine=50
 
-  
   let vocalMap=map(vocal,0,100,5,50)
   let LineStart=450
   let LineEnd = LineStart+lenghthOfLine
@@ -88,6 +87,7 @@ rectMode(CENTER)
     let LineStep4 = imageBottomY - i*10
     line(LineStart4,LineStep4,LineEnd4,LineStep4)
   }
+  
 //background
 push();
 scale(0.5);
